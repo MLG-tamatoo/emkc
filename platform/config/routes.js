@@ -5,9 +5,9 @@ module.exports.routes = {
     'GET /auth/discord': 'AuthController.discord',
     'GET /auth/discord_cb': 'AuthController.discord_cb',
     'GET /privacy': 'HomeController.privacy',
-    'GET /stickers': 'MerchController.stickers',
-    'POST /stickers/order': 'MerchController.order_stickers',
-    'GET /stickers/check_code/:code': 'MerchController.check_code',
+    //'GET /stickers': 'MerchController.stickers',
+    //'POST /stickers/order': 'MerchController.order_stickers',
+    //'GET /stickers/check_code/:code': 'MerchController.check_code',
 
     'GET /community': 'CommunityController.home',
     'GET /community/about': 'CommunityController.about',
@@ -17,6 +17,10 @@ module.exports.routes = {
     'GET /challenges/choose_language/:challenge_id': 'ChallengesController.choose_language',
     'POST /challenges/execute/:challenge_id': 'ChallengesController.execute',
     'GET /challenges/:challenge_id/:language': 'ChallengesController.challenge',
+
+    'GET /contests': 'ContestsController.home',
+    'POST /contests/submit': 'ContestsController.submit',
+    'GET /contests/:contest_id/*': 'ContestsController.contest',
 
     'GET /snippets': 'SnippetsController.create',
     'POST /snippets': 'SnippetsController.create',
@@ -29,6 +33,13 @@ module.exports.routes = {
 
     'GET /@:username': 'ProfilesController.view',
     'GET /@:username/challenges/:challenge_id/:language': 'ChallengesController.view_other',
+
+    // admin
+    'GET /admin': 'admin/DashboardController.dashboard',
+    'GET /admin/contests': 'admin/ContestsController.view_all',
+    'GET /admin/contests/all': 'admin/ContestsController.view_all',
+    'GET /admin/contests/update/:contest_id': 'admin/ContestsController.update',
+    'POST /admin/contests/update/:contest_id': 'admin/ContestsController.update',
 
     // service api
     'GET /api/internal/chats/last': 'api/internal/ChatsController.last',

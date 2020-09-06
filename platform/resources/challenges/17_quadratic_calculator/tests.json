@@ -11,12 +11,12 @@
             ["-3x^2+1x+7=0"]
         ],
         "output": [
-          "3, -2",
-          "3, 3",
-          "3.89791, -0.89791",
-          "1.27614, -0.60947",
-          "0.68726, -1.13170",
-          "-1.36992, 1.70325"
+          "3,-2",
+          "3,3",
+          "3.89791,-0.89791",
+          "1.27614,-0.60947",
+          "0.68726,-1.13170",
+          "-1.36992,1.70325"
         ]
     },
     {
@@ -29,10 +29,10 @@
             ["-9x^2-9x-7=0"]
         ],
         "output": [
-          "imaginary, imaginary",
-          "imaginary, imaginary",
-          "imaginary, imaginary",
-          "imaginary, imaginary"
+          "imaginary,imaginary",
+          "imaginary,imaginary",
+          "imaginary,imaginary",
+          "imaginary,imaginary"
         ]
     }
 ]

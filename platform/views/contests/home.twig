@@ -1,0 +1,80 @@
+{% extends 'master.twig'%}
+{% block content %}
+    <div class="em_common_content em_contests_home container">
+        <div class="row">
+            <div class="col-12">
+                <h4 class="f300">Contests</h4>
+
+                <p>
+                    The Engineer Man Knowledge Center hosts contests periodically which are done in a Code Golf format.
+                    For those not familiar with Code Golf, it basically means that the winner of the contest is the person
+                    who can accomplish the given objective with the lease amount of code, measured in characters.
+                </p>
+
+                <h5 class="f300">Global Rules</h5>
+
+                <ol>
+                    <li>
+                        No sharing solutions during the contest period.
+                    </li>
+                    <li>
+                        Contests start at 12:00am on the start date and end at 11:59pm on the end date and generally
+                        run 7-14 days. All dates and times are UTC.
+                    </li>
+                    <li>
+                        You can update your solution as many times as you want during the contest period.
+                    </li>
+                    <li>
+                        Points are awarded to the shortest three solutions per language that meet the objective. If there
+                        are solutions that are the same length, the solution submitted the earliest will take precedent.
+                    </li>
+                    <li>
+                        Submitted solutions must pass automated code execution before they are recorded as a contest submission.
+                        This is done using the Piston engine. The only supported languages are the languages that Piston supports.
+                        To request new languages, submit a request in #emkc-felix-pison on <a href="https://discord.gg/engineerman">Discord</a>.
+                    </li>
+                    <li>
+                        Leading and trailing whitespace is automatically trimmed before calculating the number of characters used.
+                    </li>
+                </ol>
+
+                <hr />
+
+                <div class="active">
+                    <h4 class="f300">Active Contests</h4>
+                    {% for contest in active_contests %}
+                        <a href="{{ contest.url }}" class="contest">
+                            <div class="name">{{ contest.name }}</div>
+                            <p>
+                                Code Golf style contest. Click for more info or to submit solutions.
+                            </p>
+                            <div class="time_left">
+                                Active Dates: {{ contest.start_date|date('F j, Y') }} - {{ contest.end_date|date('F j, Y') }}
+                                ({{ contest.time_left }} left)
+                            </div>
+                            <div class="solutions">
+                                Total Solutions: {{ contest.submissions|length }}
+                                <div>
+                                    {% for submission in contest.submissions %}
+                                        <img src="{{ req.local.constant.cdn_url ~ submission.user.avatar_url }}" />
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </a>
+                    {% else %}
+                        There are no active contests at this time.
+                    {% endif %}
+                </div>
+
+                <div class="past">
+                    <h4 class="f300">Past Contests</h4>
+                    {% for contest in past_contests %}
+                        {{ contest.name }}
+                    {% else %}
+                        There are no pasts contests at this time.
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

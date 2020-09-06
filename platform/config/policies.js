@@ -9,6 +9,11 @@ module.exports.policies = {
         'video_request_vote': ['common', 'logged_in']
     },
 
+    'ContestsController': {
+        '*': ['common'],
+        'submit': ['common', 'logged_in']
+    },
+
     'QuestionsController': {
         '*': ['common'],
         'ask': ['common', 'logged_in'],
@@ -26,6 +31,10 @@ module.exports.policies = {
 
     'VotesController': {
         '*': ['common', 'logged_in']
+    },
+
+    'admin/ContestsController': {
+        '*': ['common', 'logged_in', 'is_admin']
     },
 
     'api/internal/ChatsController': {
